@@ -8,7 +8,7 @@ SharkFin ships with Playbooks that you can run now. Including Playbooks for Link
 
 Our App supports both OpenAI and Anthropic models.
 
-Runs: Ubuntu +22.04 and MAC OS.
+Runs: Ubuntu +22.04 and MAC OS. Free for now.
 
 Star our Repo if you enjoy our app. Follow in X @SharkfinAI, Discord: SharkFinAI and website: https://sharkfinai.io for news and official updates.
 
