@@ -27,11 +27,21 @@ sharkfin start
 
 ```
 
-If `npm link` fails on Linux due to permissions:
+If `npm link` fails on MAC or Linux due to permissions:
 
 ```bash
 npm_config_prefix="$HOME/.local" npm link
 export PATH="$HOME/.local/bin:$PATH"
+npm install -g sharkfin
+sharkfin register
+sharkfin start
+
+or:
+
+npm_config_prefix="$HOME/.local" npm install -g sharkfin
+export PATH="$HOME/.local/bin:$PATH"
+sharkfin register
+sharkfin start
 ```
 
 ## Current Release Notes
