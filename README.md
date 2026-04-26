@@ -25,16 +25,18 @@ Star our Repo if you enjoy our app. Follow on X @SharkfinAI, Discord: SharkFinAI
 ## Install
 
 ```bash
-npm install -g sharkfin
+npm_config_prefix="$HOME/.local" npm install -g sharkfin
+export PATH="$HOME/.local/bin:$PATH"
 sharkfin register
 sharkfin start
 ```
 
-If your machine needs a user-local npm prefix:
+If `npm install -g sharkfin` fails with an `EACCES` permission error on Linux because npm is trying to write to a system path like `/usr/lib/node_modules`, use the user-local prefix install above.
+
+If you prefer the standard global npm path and your machine allows it, including MAC users:
 
 ```bash
-npm_config_prefix="$HOME/.local" npm install -g sharkfin
-export PATH="$HOME/.local/bin:$PATH"
+npm install -g sharkfin
 sharkfin register
 sharkfin start
 ```
