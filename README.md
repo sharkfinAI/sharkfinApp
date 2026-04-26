@@ -40,10 +40,12 @@ sharkfin start
 ```
 
 ## First Run
+See AppREAD.md for tools, llm, and setup instructions.
 
 Start with one built-in workflow:
 
 ```bash
+** Register your gmail in the sharkfin register **
 sharkfin playbooks run inbox-executive-brief
 ```
 
