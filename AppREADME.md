@@ -18,16 +18,13 @@ This is not just a chatbot. SharkFin can read, write, browse, search memory, orc
 
 ## Install
 
-For the current release, the recommended install path is from source.
+For the current release, the recommended install from NPM.
 
 ```bash
-git clone https://github.com/sharkfinAI/sharkfinApp.git
-cd sharkfin
-npm install
-npm run build
-npm link
+npm install -g sharkfin
 sharkfin register
 sharkfin start
+
 ```
 
 If `npm link` fails on Linux due to permissions:
