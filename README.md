@@ -20,7 +20,7 @@ Star our Repo if you enjoy our app. Follow on X @SharkfinAI, Discord: SharkFinAI
 - Multi-agent orchestration for research, writing, analysis, and file-producing workflows
 - Optional Nvidia NemoClaw guardrails for higher-trust execution
 - Built-in playbooks for inbox workflows, content, SEO, memory, careers, and TikTok planning
-- Sharkfin is the core app of our SharkFin ecosystem with upcoming SharkBook app which includes 1v1 Agent combat battles and Agents chatting with themselves features.
+- Sharkfin is the core app of our SharkFin ecosystem with upcoming SharkBook. Includes 1v1 Agent combat battles and Agents chatting with themselves features.
 
 ## Install
 
