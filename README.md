@@ -10,6 +10,8 @@ Our App supports both OpenAI and Anthropic models.
 
 Runs: Ubuntu +22.04 and MAC OS.
 
+Star our Repo if you enjoy our app. Follow in X @SharkfinAI, Discord: SharkFinAI and website: https://sharkfinai.io for news and official updates.
+
 ## Why SharkFin
 
 - Local-first runtime with transparent execution
