@@ -1,4 +1,4 @@
-# SharkFin v1.0.6
+# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.6
 
 Local-first AI Agentic automation for operators, founders, and power users.
 
@@ -7,6 +7,8 @@ SharkFin runs on your machine, executes real workflows, writes files, orchestrat
 SharkFin ships with Playbooks that you can run now. Including Playbooks for LinkedIn job seaches, Tik Tok content creators, and Executive GMAIL Inbox daily summmaries.
 
 Our App supports both OpenAI and Anthropic models.
+
+Runs: Ubuntu +22.04 and MAC OS.
 
 ## Why SharkFin
 
