@@ -46,11 +46,13 @@ What is ready:
 - Optional NemoClaw security layer
 - Gmail, browser, web research, memory, filesystem, messaging, and SEO workflows
 - Standalone auth commands for Telegram, Discord, Gmail, and Calendar
+- Nvidia NemoClaw Security
 
 Coming soon:
 
-- SharkHub / Playbooks Hub / Marketplace
+- SharkBook: Agentic AI combat battles.
 - Ghostwriter social automation
+- Mythos LLM defense
 
 ## Optional NemoClaw Security Layer
 
@@ -304,7 +306,7 @@ SharkFin is designed to be transparent and patchable, but you are responsible fo
 Do not use SharkFin for malicious activity, harmful automation, abuse, or unauthorized access.
 
 
-## 🔥 New in v1.4: Forge Self-Improvement
+## 🔥 New in v1.6: Forge Self-Improvement
 Type `sharkfin forge` in the CLI and go from idea to runnable automation:
 
 **Describe -> Forge -> Run -> Improve**
@@ -415,7 +417,7 @@ It is better to think about Ghostwriter as a valuation multiplier on product nar
 
 ## Tools List
 
-SharkFin currently ships with **37 built-in tools** across the workflows customers care about most.
+SharkFin currently ships with **41 built-in tools** across the workflows customers care about most.
 
 **Email**
 - `email.list`
@@ -548,7 +550,7 @@ This is one of SharkFin's most powerful advantages: it can both create new workf
 
 ## Beta Status
 
-SharkFin is in active beta.
+SharkFin is in active beta. Post bugs. 
 
 That means:
 
@@ -560,6 +562,8 @@ That means:
 ## Support
 
 - GitHub: `https://github.com/sharkfinAI/sharkfinApp`
+- X @SharkfinAI
+- webpage: https://sharkfinai.io
 - Community: see project community links in the main repo materials
 
 If you want the engineering and internal details, use the main [README.md](/sharkfin/README.md). This file is the customer-facing quick guide.
