@@ -1,4 +1,4 @@
-# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.6
+# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.7
 
 Local-first AI Agentic automation for operators, founders, and power users.
 
@@ -74,7 +74,7 @@ sharkfin ghostwriter run-now FounderBrand --brief "Draft a short founder update"
 
 Forge is SharkFin's self-improvement engine. It does more than generate YAML from a prompt.
 
-In `v1.0.6`, Forge can:
+In `v1.0.7`, Forge can:
 
 - generate new playbooks from plain English
 - dry-run validate generated playbooks before saving
