@@ -4,7 +4,7 @@ Local-first AI Agentic automation for operators, founders, and power users.
 
 SharkFin runs on your machine, executes real workflows, writes files, orchestrates multi-agent work, and improves itself with Forge. It is built for people who want an AI agent that produces work, not just chat output.
 
-SharkFin ships with Playbooks that you can run now. Including Playbooks for LinkedIn job seaches, Tik Tok content creators, and Executive GMAIL Inbox daily summaries.
+SharkFin ships with Playbooks that you can run now. Including Playbooks for LinkedIn job seekers, Tik Tok content creators, and Executive GMAIL inbox daily summaries/action plans.
 
 Our App supports both OpenAI and Anthropic models.
 
