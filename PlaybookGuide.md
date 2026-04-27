@@ -23,6 +23,23 @@ Run a playbook:
 sharkfin playbooks run <playbook-id>
 ```
 
+## Before You Run
+
+Some built-in playbooks are ready to run as-is. Others are designed to ship with starter inputs so customers can see the workflow immediately and then replace those inputs with real data.
+
+Best practice:
+
+- run the playbook once to understand the output shape
+- then open the playbook YAML and replace the starter variables or seeded source text with your real content
+- if a playbook uses `email.*`, make sure Gmail auth is configured first with `sharkfin email-auth`
+
+The most common fields customers will want to customize are:
+
+- `variables:` values near the top of the playbook
+- seeded source text inside `fs.write_file` steps
+- search queries inside `web.search` steps
+- output file names if you want a different saved filename
+
 ## Built-in Playbooks
 
 SharkFin currently ships with **14** top-level built-in playbooks.
@@ -110,6 +127,11 @@ sharkfin playbooks run browser-clickthrough-brief
 #### Content Engine (`content-engine`)
 Purpose: Run a multi-agent research and writing workflow that produces a blog post draft on a chosen topic.
 
+Customize before serious use:
+- update `topic` in the playbook `variables:` block
+- update `output_path` if you want a different file name
+- treat the default topic as a starter example, not a required production topic
+
 Writes:
 - `tiktok-content-engine-blog.md` by default, or the file set in `output_path`
 
@@ -122,6 +144,15 @@ sharkfin playbooks run content-engine
 #### SEO Content Optimizer (`seo-optimizer`)
 Purpose: Read a draft article, optimize it for target keywords, and save an SEO-ready version with metadata and recommendations.
 
+Customize before serious use:
+- update `target_keywords` in the `variables:` block
+- replace the seeded draft content with your real article text
+- optionally change the audience and content type in the `seo.optimize_content` step
+
+Important:
+- this playbook does not take a URL by default
+- if you want to optimize content from a live URL, you would need to modify the playbook to fetch that source first
+
 Writes:
 - `content-draft.md`
 - `content-optimized.md`
@@ -133,7 +164,18 @@ sharkfin playbooks run seo-optimizer
 ```
 
 #### TikTok Revenue Hook Pack (`tiktok-revenue-hook-pack`)
-Purpose: Build a TikTok-ready content pack from a business offer, including hooks, short scripts, captions, CTAs, filming prompts, and a simple 7-day posting plan.
+Purpose: Build a generated TikTok-ready content pack from a business offer, including hooks, short scripts, captions, CTAs, filming prompts, and a simple 7-day posting plan.
+
+Notes:
+- This is a local content-planning workflow.
+- It does not pull live TikTok analytics or publish to TikTok directly.
+
+Customize before serious use:
+- update `niche`
+- update `offer`
+- update `audience`
+- update `revenue_goal`
+- update `tone`
 
 Writes:
 - `tiktok-revenue-brief.md`
@@ -146,7 +188,16 @@ sharkfin playbooks run tiktok-revenue-hook-pack
 ```
 
 #### TikTok Trend Opportunity Brief (`tiktok-trend-opportunity-brief`)
-Purpose: Build a TikTok opportunity brief for a niche, including trend themes, video ideas, hooks, captions, hashtags, CTAs, and best bets to film this week.
+Purpose: Build a generated TikTok opportunity brief for a niche, including theme ideas, video ideas, hooks, captions, hashtags, CTAs, and best bets to film this week.
+
+Notes:
+- This uses built-in planning patterns and the provided niche context.
+- It does not pull live TikTok platform trend data.
+
+Customize before serious use:
+- update `niche`
+- update `audience`
+- update `goal`
 
 Writes:
 - `tiktok-trend-opportunity-brief.md`
@@ -159,6 +210,17 @@ sharkfin playbooks run tiktok-trend-opportunity-brief
 
 #### TikTok Weekly Content Calendar (`tiktok-weekly-content-calendar`)
 Purpose: Generate a 7-day TikTok content calendar with daily hooks, short scripts, captions, CTAs, hashtags, and filming prompts.
+
+Notes:
+- This is a generated weekly planning workflow based on the supplied niche, offer, and audience.
+- It does not schedule posts on TikTok or use live TikTok analytics.
+
+Customize before serious use:
+- update `niche`
+- update `offer`
+- update `audience`
+- update `weekly_goal`
+- update `tone`
 
 Writes:
 - `tiktok-weekly-content-calendar-brief.md`
@@ -175,6 +237,11 @@ sharkfin playbooks run tiktok-weekly-content-calendar
 #### Document Memory Brief (`document-memory-brief`)
 Purpose: Create a sample source document, extract its text, store it in memory, retrieve matching entries, and write a reusable brief.
 
+Customize before serious use:
+- replace the seeded source document with your real notes or document text
+- update `memory_key` if you want to store it under a different memory namespace
+- update `search_query` so retrieval matches your real use case
+
 Writes:
 - `document-memory-source.md`
 - `document-memory-brief.txt`
@@ -190,6 +257,12 @@ sharkfin playbooks run document-memory-brief
 #### Job Hunt Accelerator Pro Lite (`job-hunt-accelerator-pro-lite`)
 Purpose: Build a local job application pack from a resume draft and a target job brief, then save tailored materials for manual review and submission.
 
+Customize before serious use:
+- update `target_role` in the `variables:` block
+- replace the seeded resume text with your real resume
+- replace the seeded target job brief with the real job description or your own pasted role notes
+- optionally change the output file names if you want separate files per company or role
+
 Writes:
 - `job-hunt-lite-resume.md`
 - `job-hunt-lite-job-brief.md`
@@ -203,7 +276,12 @@ sharkfin playbooks run job-hunt-accelerator-pro-lite
 ```
 
 #### LinkedIn Interview Strategy Brief (`linkedin-interview-strategy-brief`)
-Purpose: Synthesize practical public advice on tailoring LinkedIn applications, recruiter-friendly resumes, networking, and follow-up strategies into a jobseeker guide.
+Purpose: Synthesize practical public web advice related to LinkedIn applications, recruiter-friendly resumes, networking, and follow-up strategies into a jobseeker guide.
+
+Customize before serious use:
+- update the four `web.search` queries if you want guidance for a specific role, industry, geography, or seniority level
+- optionally tighten the final synthesis prompt to focus on a narrower jobseeker audience
+- optionally change the output filename if you want separate briefs for different job-search tracks
 
 Writes:
 - `linkedin-interview-strategy-brief.md`
