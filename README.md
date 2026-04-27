@@ -49,9 +49,7 @@ See AppREAD.md for tools, llm, and setup instructions.
 example: 
 .sharkfin
   -playbooks
-    -jobsearch
-    -tiktok
-    -seo
+    /jobsearch tiktok seo
 
 Start with one built-in workflow:
 
