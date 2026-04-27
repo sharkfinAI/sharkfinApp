@@ -1,6 +1,6 @@
 # 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.7
 
-Local-first AI Agentic automation for operators, founders, and power users.
+Local-first AI Agentic automation (inspired by OpenClaw) for operators, founders, and power users.
 
 SharkFin runs on your machine, executes real workflows, writes files, orchestrates multi-agent work, and improves itself with Forge. It is built for people who want an AI agent that produces work, not just chat output.
 
