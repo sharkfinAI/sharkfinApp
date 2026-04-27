@@ -43,7 +43,9 @@ sharkfin start
 
 ## First Run
 See AppREAD.md for tools, llm, and setup instructions.
+
 ** Your Sharkin output data lives in the .sharkfin folders. Output of Agents playbook runs lives in the .sharkfin/playbooks folder. You can Create custom folders in the playbooks folders if needed and update the location in the .yml files. **
+
 example: 
 .sharkfin
   -playbooks
@@ -54,7 +56,7 @@ example:
 Start with one built-in workflow:
 
 ```bash
-** Register your gmail in the sharkfin register **
+** Register your gmail and auth in the sharkfin register or sharkfin email-auth **
 sharkfin playbooks run inbox-executive-brief
 ```
 
