@@ -274,6 +274,7 @@ Install SharkFin, run one playbook, then generate one workflow of your own with 
 ```bash
 npm install -g sharkfin
 sharkfin register
+sharkfin start
 sharkfin playbooks run inbox-executive-brief
 sharkfin forge "Create a playbook that saves a daily founder market brief to markdown" --run
 ```
