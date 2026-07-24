@@ -2,7 +2,7 @@
 
 Local-first AI Agentic automation (inspired by OpenClaw) for operators, founders, and power users.
 
-SharkFin runs on your machine, executes real workflows, writes files, orchestrates multi-agent work, and improves itself with Forge. It is built for people who want an AI agent that produces work, not just chat output.
+SharkFin Agents runs on your machine, executes real workflows, writes files, orchestrates multi-agent work, and improves itself with Forge. It is built for people who want an AI agent that produces work, not just chat output.
 
 SharkFin ships with Playbooks that you can run now. Including Playbooks for LinkedIn job seekers, Tik Tok content creators, and Executive GMAIL inbox daily summaries/action plans.
 
@@ -12,10 +12,10 @@ Runs: Ubuntu +22.04 and MAC OS. Free for now.
 
 Star our Repo if you enjoy our app. Follow on X @SharkfinAI and website: https://sharkfinapp.netlify.app for news and official updates. 
 
-## Why SharkFin 1.08 Updates
+## Why SharkFin s
 
 - Local-first runtime with transparent execution
-- Forge for playbook generation, validation, and self-improvement
+- Forge for playbook AI Agents generation, validation, and self-improvement
 - Ghostwriter for brand drafting, scheduling, and managed content loops
 - Multi-agent orchestration for research, writing, analysis, and file-producing workflows
 - Optional Nvidia NemoClaw guardrails for higher-trust execution
