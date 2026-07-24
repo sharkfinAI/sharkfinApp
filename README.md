@@ -12,7 +12,7 @@ Runs: Ubuntu +22.04 and MAC OS. Free for now.
 
 Star our Repo if you enjoy our app. Follow on X @SharkfinAI and website: https://sharkfinapp.netlify.app for news and official updates. 
 
-## Why SharkFin s
+## Why SharkFin 
 
 - Local-first runtime with transparent execution
 - Forge for playbook AI Agents generation, validation, and self-improvement
