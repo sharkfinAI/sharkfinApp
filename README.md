@@ -1,4 +1,4 @@
-# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.7
+# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.8
 
 Local-first AI Agentic automation (inspired by OpenClaw) for operators, founders, and power users.
 
