@@ -12,7 +12,7 @@ Runs: Ubuntu +22.04 and MAC OS. Free for now.
 
 Star our Repo if you enjoy our app. Follow on X @SharkfinAI and website: https://sharkfinapp.netlify.app for news and official updates. 
 
-## Why SharkFin
+## Why SharkFin 1.08 Updates
 
 - Local-first runtime with transparent execution
 - Forge for playbook generation, validation, and self-improvement
@@ -20,8 +20,28 @@ Star our Repo if you enjoy our app. Follow on X @SharkfinAI and website: https:/
 - Multi-agent orchestration for research, writing, analysis, and file-producing workflows
 - Optional Nvidia NemoClaw guardrails for higher-trust execution
 - Built-in playbooks for inbox workflows, content, SEO, memory, careers, and TikTok planning
-- Sharkfin is the core app of our SharkFin ecosystem with upcoming SharkBook. Includes 1v1 Agent combat battles and Agents chatting with themselves features.
 
+## 1.08 Updates
+What is ready:
+
+- Published npm install
+- CLI agent
+- Playbooks
+- Forge playbook generation and self-improvement suggestions
+- Multi-agent orchestration for concrete research-and-writing workflows
+- Optional NemoClaw security layer
+- 69 built-in tools across Gmail, Calendar, browser, web research, cited knowledge, durable jobs, filesystem, messaging, and SEO workflows
+- Standalone auth commands for Telegram, Discord, Gmail, and Calendar
+- Ghostwriter local drafting, scheduling, brand loops, and optional SharkBook publishing
+- Built-in `sharkfin doctor` health diagnostics
+- Customer playbook linting and recoverable Forge fallback quarantine
+- Upgrade-safe bundled playbooks that preserve customer edits
+- Hardened `web.fetch` URL validation for generated workflows
+- Cited local knowledge with source labels, line ranges, and opt-in automatic recall
+- Restart-safe one-time, cron, and authenticated-webhook jobs with retries and history
+- Rich browser tabs, profiles, keyboard, forms, uploads, downloads, waits, PDF, and screenshot operations
+- Gmail search and attachments, Calendar mutation/free-busy, and richer Telegram/Discord messaging
+- 
 ## Install
 
 ```bash
