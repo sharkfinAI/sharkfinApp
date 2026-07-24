@@ -62,7 +62,7 @@ sharkfin start
 ```
 
 ## First Run
-See AppREAD.md for tools, llm, and setup instructions.
+See AppREADME.md for tools, llm, and setup instructions.
 
 ** Your SharkFin output data lives in the .sharkfin folders. Output of Agents playbook runs lives in the .sharkfin/playbooks folder. You can Create custom folders in the playbooks folders if needed and update the location in the .yml files. **
 
