@@ -41,7 +41,7 @@ What is ready:
 - Restart-safe one-time, cron, and authenticated-webhook jobs with retries and history
 - Rich browser tabs, profiles, keyboard, forms, uploads, downloads, waits, PDF, and screenshot operations
 - Gmail search and attachments, Calendar mutation/free-busy, and richer Telegram/Discord messaging
-- 
+  
 ## Install
 
 ```bash
