@@ -1,4 +1,4 @@
-# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.0.8
+# 🦈 SharkFin — Your Local AI Agent : SharkFin v1.10
 
 Local-first AI Agentic automation (inspired by OpenClaw) for operators, founders, and power users.
 
@@ -20,6 +20,251 @@ Star our Repo if you enjoy our app. Follow on X @SharkfinAI and website: https:/
 - Multi-agent orchestration for research, writing, analysis, and file-producing workflows
 - Optional Nvidia NemoClaw guardrails for higher-trust execution
 - Built-in playbooks for inbox workflows, content, SEO, memory, careers, and TikTok planning
+
+## 1.0.10 Updates
+
+**Teach a task once. Reuse the workflow. Inspect the result.**
+
+SharkFin turns repeatable work into local AI workflows: decision briefs, research summaries, content drafts, and reusable automations. Forge helps you describe a task, generate a playbook, simulate it, and inspect what a live run produced.
+
+Start with the **Founder Decision Brief**. Give SharkFin a real decision and your context; its multi-agent workflow writes a local Markdown brief you can review and reuse.
+
+**Free to use today. Bring your own model.** Cloud model providers may charge for usage. Model prompts go to the local or cloud provider you configure; local-first does not mean every task runs offline.
+
+[Install from npm](https://www.npmjs.com/package/sharkfin) | [Customer Guide](https://github.com/sharkfinAI/sharkfinApp/blob/main/AppREADME.md) | [Playbook Guide](https://github.com/sharkfinAI/sharkfinApp/blob/main/PlaybookGuide.md) | [Report an Issue](https://github.com/sharkfinAI/sharkfinApp/issues)
+
+## Get Your First Result
+
+Requires **Node.js 20 or newer** and npm.
+
+```bash
+npm install -g sharkfin@1.0.10
+sharkfin --version
+sharkfin register
+```
+
+During registration, configure a working model provider. Supported choices include OpenAI, Anthropic, Grok, Ollama, a compatible local endpoint, and Nemotron. Telegram, Discord, Gmail, and Calendar are optional: accept the default **No** to skip them. You can connect them later.
+
+Preview the first mission, then run it with your model:
+
+```bash
+sharkfin mission start --goal "Choose our highest-value priority this week" --context "We are a two-person software team. We have ten trial users, limited engineering time, and need better activation." --simulate
+sharkfin mission start --goal "Choose our highest-value priority this week" --context "We are a two-person software team. We have ten trial users, limited engineering time, and need better activation."
+sharkfin forge runs
+sharkfin outcomes
+```
+
+**What you get:** a Markdown brief containing your goal and a team recommendation, with prompts asking the team to identify assumptions, risks, and a seven-day action plan. The live command prints the artifact path and run ID. By default, the brief is written under:
+
+```text
+~/.sharkfin/playbooks/outcomes/founder-decision-brief-<timestamp>.md
+```
+
+Simulation makes no model calls and does not write the brief; it records a local run proof. A live run requires a working model connection. Artifact checks validate declared requirements such as headings and file size, not the factual correctness of the recommendation.
+
+<details>
+<summary>Linux installation fails with an EACCES permission error?</summary>
+
+Install under your own account instead of using a system-owned npm directory:
+
+```bash
+npm_config_prefix="$HOME/.local" npm install -g sharkfin@1.0.10
+export PATH="$HOME/.local/bin:$PATH"
+sharkfin register
+```
+
+Add the PATH setting to your shell profile if you want it to persist across terminals.
+
+</details>
+
+## What Is New in v1.0.10
+
+- **Forge Outcome Studio:** inspect generated workflows, simulate them, review run proofs, and draft repairs for failed runs.
+- **A first useful mission:** the Founder Decision Brief combines analyst, writer, and reviewer roles into a file-producing workflow without requiring email or messaging integrations.
+- **Signed playbook packs:** export, verify, and install reusable workflows with an explicit signer-trust decision.
+- **Local outcome tracking:** inspect seven-day outcome summaries rather than relying only on activity logs.
+- **Clearer onboarding and readiness:** optional integrations stay optional, and configuration status is distinguished from a successfully tested connection.
+
+The release includes **16 bundled playbooks**. Run `sharkfin playbooks list` to see what is installed.
+
+## Forge: From a Task to Reusable Automation
+
+Instead of repeating the same prompt every week, describe the workflow and the artifact you want:
+
+```bash
+sharkfin forge "Create a playbook named weekly-priority-brief. Ask an analyst and a reviewer to evaluate three priorities supplied as an input. Write a Markdown brief in the allowed playbook output directory with sections for recommendation, assumptions, risks, and next actions. Declare artifact checks for the output."
+```
+
+Forge uses your configured model to generate the playbook and simulates it before saving. Review the generated workflow before live execution. Use the actual playbook ID printed by Forge in the commands below:
+
+```bash
+sharkfin forge inspect <playbook-id>
+sharkfin forge test <playbook-id>
+sharkfin playbooks run <playbook-id>
+sharkfin forge runs
+```
+
+If the workflow declares required inputs, supply them with `--set key=value`, using the names shown by `forge inspect`.
+
+For explicitly authorized generation and immediate execution:
+
+```bash
+sharkfin forge "Create a reusable workflow for my task and declare its expected output" --run --approve
+```
+
+`--approve` is required with Forge's `--run`; it does not bypass execution policies. Simulation is a preview, not proof that external services, credentials, or model responses will work in a live run.
+
+### Self-Learning You Can Inspect
+
+SharkFin uses recent action logs to suggest workflow improvements. You stay in control of which suggestions become saved automations.
+
+```bash
+sharkfin logs --limit 20
+sharkfin forge suggest
+sharkfin forge suggest --show-prompt
+sharkfin forge runs
+sharkfin forge repair <failed-run-id>
+```
+
+Repair drafts and tests a proposed fix by default. Add `--save` only when you want to promote the repair to a saved playbook. Review it before running it against live services.
+
+With the runtime running and both `forge.enabled` and `forge.proactiveSuggestions` enabled, Forge can also periodically review activity and suggest improvements. This is workflow learning and reuse, **not automatic model retraining** or unrestricted self-modification.
+
+## Work You Can Put to Use
+
+| Need | Start With | Result |
+| --- | --- | --- |
+| Decide what to work on next | `sharkfin mission start --goal "Your decision"` | A local Founder Decision Brief |
+| Repeat a proven task | `sharkfin playbooks list` | Discover reusable workflows, then inspect and run one |
+| Get multiple perspectives | `sharkfin agents run "Compare three ways to improve trial activation" --agents analyst,writer,reviewer` | A coordinated response to your goal |
+| Turn documents into reusable context | `sharkfin knowledge ingest ./notes --recursive` | Indexed local knowledge for cited retrieval |
+| Draft consistent brand content | Ghostwriter example below | Local drafts and platform-specific variants |
+| Review email efficiently | `inbox-executive-brief` or `gmail-thread-followup-draft` | Inbox summaries or follow-up drafts after Gmail setup |
+
+Bundled workflows also cover document briefs, memory-assisted follow-ups, SEO, job-search planning, and content calendars. Integrations and inputs differ by playbook; inspect or simulate before a live run. A content workflow is not a promise of direct access to the platform it writes about.
+
+### Ghostwriter: Draft First, Publish Deliberately
+
+```bash
+sharkfin ghostwriter start "FounderBrand" --mode draft-only --cadence manual --topics "local AI, founder lessons"
+sharkfin ghostwriter run-now FounderBrand --brief "Draft a founder update about improving customer onboarding. Do not invent customer quotes or performance numbers."
+sharkfin ghostwriter status FounderBrand
+```
+
+Ghostwriter maintains a local brand workspace and generates drafts, including LinkedIn, X, and YouTube variants. The example is manual and draft-only: it does not publish your content.
+
+Optional social integration uses **SharkBook HTTP**, not a direct database connection. It does not provide native publishing to LinkedIn, X, or YouTube. Ghostwriter management remains CLI-only in this release.
+
+## Core Commands
+
+| Command | Purpose |
+| --- | --- |
+| `sharkfin register` | Configure your identity, model, and optional integrations |
+| `sharkfin mission list` | Discover starter missions |
+| `sharkfin mission start --goal "..."` | Run the Founder Decision Brief |
+| `sharkfin forge "..."` | Generate a reusable playbook |
+| `sharkfin forge inspect <name>` | Review a workflow's plan and requirements |
+| `sharkfin forge test <name>` | Simulate a workflow without live tool execution |
+| `sharkfin forge runs` | Inspect recorded run history |
+| `sharkfin forge repair <run-id>` | Draft and test a repair |
+| `sharkfin playbooks list` | List installed playbooks |
+| `sharkfin playbooks run <name>` | Execute a saved playbook |
+| `sharkfin playbooks lint --user` | Check customer playbooks for validation problems |
+| `sharkfin agents run "..." --agents analyst,writer,reviewer` | Run a multi-agent task |
+| `sharkfin ghostwriter status` | View Ghostwriter workspaces |
+| `sharkfin outcomes` | Review local seven-day outcome summaries |
+| `sharkfin logs --limit 20` | Review recent action logs |
+| `sharkfin doctor` | Diagnose local setup and workflow issues |
+| `sharkfin capabilities` | Report available, configured, degraded, or unsupported capabilities |
+| `sharkfin start` | Run the long-running headless chat and scheduling runtime |
+| `sharkfin console` | Open the interactive terminal dashboard |
+| `sharkfin --help` | See top-level commands; use `<command> --help` for options |
+
+Standalone missions, Forge commands, and playbook runs do not require `sharkfin start`. The runtime stays in the foreground until stopped with Ctrl+C; it is not a terminal chat prompt and does not detach itself.
+
+Connect integrations after registration when you need them:
+
+```bash
+sharkfin telegram-auth
+sharkfin discord-auth
+sharkfin email-auth
+sharkfin calendar-auth
+```
+
+## Knowledge, Jobs, and Everyday Tools
+
+**Cited knowledge:** ingest local documents, search them, inspect sources, and delete sources. Automatic recall is opt-in:
+
+```bash
+sharkfin knowledge ingest ./notes --recursive
+sharkfin knowledge search "What did we decide about onboarding?"
+sharkfin knowledge sources
+sharkfin knowledge auto-recall enable
+sharkfin knowledge auto-recall disable
+```
+
+**Durable jobs:** schedule playbooks with persisted state, retry handling, history, cancellation, and authenticated webhook triggers. Keep the scheduling runtime running to process due work; persistence does not make a stopped application execute jobs. Start with `sharkfin jobs --help`.
+
+**Everyday operations:** web search and fetching, PDF text extraction, browser operations, Gmail, Calendar, Telegram, and Discord support research and productivity workflows. Availability depends on configuration and the specific operation. The current browser is an HTTP/HTML automation layer, **not a full Chromium browser with JavaScript execution**.
+
+## Optional NemoClaw Compatibility Controls
+
+Enable, inspect, or disable the optional security layer:
+
+```bash
+sharkfin security enable nemoclaw
+sharkfin security status
+sharkfin security disable nemoclaw
+```
+
+In v1.0.10, this adds **SharkFin-side policy checks and audit metadata**. Tools do **not** execute through NVIDIA OpenShell. Enabling compatibility controls is not a sandbox deployment, NVIDIA certification, or a guarantee that a workflow is safe.
+
+SharkFin's execution gateway also applies approval, policy, dry-run, and audit handling. Review generated workflows and grant only the access they need. Disabling NemoClaw compatibility controls does not remove the application's other execution safeguards.
+
+## Share Signed Playbook Packs
+
+Package a workflow for another SharkFin installation:
+
+```bash
+sharkfin playbooks pack export founder-decision-brief --out founder-decision-brief.sharkpack
+sharkfin playbooks pack verify founder-decision-brief.sharkpack
+```
+
+Before installing someone else's pack, inspect the verification result and confirm the signer fingerprint through a trusted channel. If you decide to trust that signer:
+
+```bash
+sharkfin playbooks pack install founder-decision-brief.sharkpack --yes --trust-signer
+```
+
+A signature establishes pack integrity relative to its signing key, not the author's real-world identity or the safety of the workflow. Review installed playbooks before execution. Marketplace and SharkHub are not included in this release.
+
+## Troubleshooting and Local Data
+
+```bash
+sharkfin doctor
+sharkfin doctor --json
+sharkfin capabilities --json
+sharkfin playbooks lint --all
+sharkfin logs --limit 20
+```
+
+**Doctor checks local setup and flags actionable issues**, including configuration, playbook validation, and filesystem-related problems. Capabilities distinguishes configured features from degraded or unsupported ones. These checks do not contact your model provider: a configured API key or endpoint is not proof of a working connection.
+
+By default, SharkFin stores application state under `~/.sharkfin`, including playbooks, logs, run records, and Ghostwriter workspaces. Configured output locations may differ. Cloud model calls and connected services can receive task data; review your provider and integration settings before processing sensitive information.
+
+Browser Teach Mode and MCP are not usable integrations in v1.0.10; reserved experimental settings should not be treated as delivered functionality.
+
+## Documentation and Feedback
+
+- [Customer Guide](https://github.com/sharkfinAI/sharkfinApp/blob/main/AppREADME.md): setup and product walkthroughs. Some sections may describe earlier releases; this README covers v1.0.10.
+- [Playbook Guide](https://github.com/sharkfinAI/sharkfinApp/blob/main/PlaybookGuide.md): workflow examples and playbook concepts.
+- [npm Package](https://www.npmjs.com/package/sharkfin): published installation package.
+- [GitHub Issues](https://github.com/sharkfinAI/sharkfinApp/issues): report a problem or request a workflow.
+
+If a workflow fails, include your SharkFin version, operating system, command, and a sanitized error excerpt. Never post API keys, tokens, private documents, or unredacted logs.
+
+**Try one real task, inspect the artifact, then rerun the workflow when you need it again.** If it saves you time, share a sanitized example and tell us what outcome you want SharkFin to handle next.
+
 
 ## 1.08 Updates
 What is ready:
